@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Call - WebRTC</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <h1>📹 WebRTC Call</h1>
+            </div>
+            <div class="room-info">
+                <span id="roomId">Room: N/A</span>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Video Section -->
+            <div class="video-section">
+                <!-- Connection Status -->
+                <div id="statusBanner" class="status-banner">
+                    <span id="statusText">Initializing...</span>
+                </div>
+
+                <!-- Video Container -->
+                <div class="video-container">
+                    <!-- Remote Video (Peer) -->
+                    <div class="video-wrapper remote-video-wrapper">
+                        <video id="remoteVideo" autoplay playsinline></video>
+                        <div class="video-label">Remote</div>
+                        <div id="remoteMutedIndicator" class="muted-indicator" style="display: none;">
+                            🔇 Muted
+                        </div>
+                    </div>
+
+                    <!-- Local Video (You) -->
+                    <div class="video-wrapper local-video-wrapper">
+                        <video id="localVideo" autoplay muted playsinline></video>
+                        <div class="video-label">You</div>
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <div class="controls">
+                    <button id="toggleAudio" class="control-btn active" title="Mute/Unmute">
+                        <span class="icon">🎤</span>
+                        <span class="label">Mute</span>
+                    </button>
+                    
+                    <button id="toggleVideo" class="control-btn active" title="Show/Hide Video">
+                        <span class="icon">📹</span>
+                        <span class="label">Stop Video</span>
+                    </button>
+
+                    <button id="hangUp" class="control-btn hang-up" title="End Call">
+                        <span class="icon">📞</span>
+                        <span class="label">Hang Up</span>
+                    </button>
+
+                    <button id="toggleChat" class="control-btn" title="Toggle Chat">
+                        <span class="icon">💬</span>
+                        <span class="label">Chat</span>
+                    </button>
+
+                    <div class="device-selector">
+                        <select id="cameraSelect" class="device-select" title="Select Camera">
+                            <option value="">Select Camera</option>
+                        </select>
+                        <select id="micSelect" class="device-select" title="Select Microphone">
+                            <option value="">Select Microphone</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Section -->
+            <div id="chatSection" class="chat-section">
+                <div class="chat-header">
+                    <h3>Chat</h3>
+                    <button id="closeChat" class="close-chat">✕</button>
+                </div>
+                <div id="chatMessages" class="chat-messages"></div>
+                <div class="chat-input-container">
+                    <input type="text" id="chatInput" class="chat-input" placeholder="Type a message...">
+                    <button id="sendMessage" class="send-btn">Send</button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Join Room Modal -->
+        <div id="joinModal" class="modal">
+            <div class="modal-content">
+                <h2>Join Video Call</h2>
+                <p>Enter a room name to start or join a call</p>
+                <input type="text" id="roomInput" class="room-input" placeholder="Enter room name (e.g., meeting-123)">
+                <button id="joinBtn" class="join-btn">Join Room</button>
+                <div id="errorMessage" class="error-message"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
