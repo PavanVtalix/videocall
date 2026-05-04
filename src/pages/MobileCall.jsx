@@ -225,15 +225,6 @@ export default function MobileCall() {
   const allowExitRef = useRef(false);
   const chatOpenRef = useRef(false);
   const agoraSessionRef = useRef(null);
-  };
-
-export default function MobileCall() {
-  const { appointmentId, roomId, socketId } = useParams();
-  const localRef = useRef(null);
-  const remoteRef = useRef(null);
-  const allowExitRef = useRef(false);
-  const chatOpenRef = useRef(false);
-  const agoraSessionRef = useRef(null);
 
   const [chatOpen, setChatOpen] = useState(false);
   const [muted, setMuted] = useState(false);
