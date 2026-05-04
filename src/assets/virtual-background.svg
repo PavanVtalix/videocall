@@ -1,0 +1,59 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#bfe4ff" />
+      <stop offset="100%" stop-color="#eef8ff" />
+    </linearGradient>
+    <linearGradient id="wall" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f8f0e2" />
+      <stop offset="100%" stop-color="#e3d1bf" />
+    </linearGradient>
+    <linearGradient id="desk" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4d2d1f" />
+      <stop offset="100%" stop-color="#7a4e37" />
+    </linearGradient>
+    <linearGradient id="plant" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#6bc07a" />
+      <stop offset="100%" stop-color="#2f8f54" />
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#sky)" />
+  <rect y="330" width="1280" height="390" fill="url(#wall)" />
+  <rect y="560" width="1280" height="160" fill="#d8c2aa" />
+  <rect x="84" y="116" width="350" height="220" rx="18" fill="#ffffff" fill-opacity="0.48" stroke="#f5f6f7" stroke-width="10" />
+  <rect x="120" y="152" width="278" height="148" rx="10" fill="#9fd0ff" />
+  <circle cx="186" cy="190" r="34" fill="#ffd65c" fill-opacity="0.9" />
+  <circle cx="286" cy="188" r="50" fill="#ffffff" fill-opacity="0.85" />
+  <circle cx="340" cy="220" r="36" fill="#ffffff" fill-opacity="0.75" />
+  <rect x="470" y="170" width="240" height="20" rx="10" fill="#d8c2aa" />
+  <rect x="462" y="190" width="16" height="180" rx="8" fill="#a77c60" />
+  <rect x="701" y="190" width="16" height="180" rx="8" fill="#a77c60" />
+  <rect x="428" y="284" width="382" height="24" rx="12" fill="#8e6145" />
+  <rect x="430" y="308" width="378" height="92" rx="18" fill="url(#desk)" />
+  <rect x="462" y="326" width="110" height="58" rx="10" fill="#1f2937" fill-opacity="0.18" />
+  <rect x="610" y="322" width="150" height="18" rx="9" fill="#f4d9b5" />
+  <rect x="610" y="346" width="112" height="14" rx="7" fill="#f2d0b0" />
+  <path d="M870 500C870 457.147 904.147 423 947 423H1020C1062.85 423 1097 457.147 1097 500V660H870V500Z" fill="#cdb19c" />
+  <rect x="904" y="404" width="150" height="196" rx="22" fill="#f5ede1" />
+  <circle cx="977" cy="374" r="55" fill="#f0d4b2" />
+  <path d="M928 468C928 440.386 950.386 418 978 418C1005.61 418 1028 440.386 1028 468V592H928V468Z" fill="#355070" />
+  <path d="M928 468L884 606" stroke="#355070" stroke-width="26" stroke-linecap="round" />
+  <path d="M1028 468L1074 606" stroke="#355070" stroke-width="26" stroke-linecap="round" />
+  <path d="M949 592L930 688" stroke="#355070" stroke-width="26" stroke-linecap="round" />
+  <path d="M1007 592L1025 688" stroke="#355070" stroke-width="26" stroke-linecap="round" />
+  <rect x="148" y="390" width="124" height="176" rx="22" fill="#f6eadc" />
+  <rect x="122" y="528" width="172" height="114" rx="58" fill="#d7b18f" />
+  <circle cx="210" cy="356" r="44" fill="#f0c7a0" />
+  <rect x="170" y="400" width="80" height="132" rx="34" fill="#8b5e3c" />
+  <path d="M158 446C170 418 196 402 224 402H236C266 402 292 420 304 448L332 520H130L158 446Z" fill="#f5efe6" />
+  <path d="M180 322C190 302 208 290 228 290C248 290 268 303 278 323L296 358H158L180 322Z" fill="#4f7c8a" />
+  <rect x="84" y="598" width="1112" height="42" rx="21" fill="#cab299" />
+  <rect x="82" y="638" width="1116" height="20" rx="10" fill="#b79e86" />
+  <rect x="1080" y="408" width="72" height="208" rx="28" fill="url(#plant)" />
+  <path d="M1120 404C1134 384 1156 372 1180 372H1190C1214 372 1236 384 1250 404L1278 456H1092L1120 404Z" fill="url(#plant)" />
+  <path d="M1148 462L1116 612" stroke="#2f8f54" stroke-width="20" stroke-linecap="round" />
+  <path d="M1206 462L1238 612" stroke="#2f8f54" stroke-width="20" stroke-linecap="round" />
+  <circle cx="1060" cy="172" r="18" fill="#fff7c2" fill-opacity="0.85" />
+  <circle cx="1024" cy="202" r="8" fill="#ffffff" fill-opacity="0.65" />
+  <circle cx="1080" cy="206" r="8" fill="#ffffff" fill-opacity="0.65" />
+</svg>
