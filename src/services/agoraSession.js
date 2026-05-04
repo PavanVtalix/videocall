@@ -1,7 +1,7 @@
 import AgoraRTC from "agora-rtc-sdk-ng";
 import AgoraRTM from "agora-rtm-sdk";
 import VirtualBackgroundExtension from "agora-extension-virtual-background";
-import virtualBackgroundImageUrl from "../assets/virtual-background.svg";
+import virtualBackgroundImageUrl from "../assets/background-img-2.png";
 
 const virtualBackgroundExtension = new VirtualBackgroundExtension();
 const virtualBackgroundSupported = virtualBackgroundExtension.checkCompatibility();
@@ -37,7 +37,7 @@ async function getVirtualBackgroundOptions(mode) {
   }
 
   if (mode === "color") {
-    return { type: "color", color: "#0f766e" };
+    return { type: "color", color: "#ffffff" };
   }
 
   return { type: "none" };

@@ -12,6 +12,10 @@ import videoOnIcon from "../assets/Video on.svg";
 import videoOffIcon from "../assets/Video off.svg";
 import virtualBackgroundImage from "../assets/virtual-background.svg";
 import "../styles/mobile-call.css";
+import none from "../assets/none.png";
+import blur from "../assets/blur.jpg";
+import color from "../assets/white-color.png";
+import logo from "../assets/vtalix-logo.png";
 
 function getAppointmentApiBaseUrl() {
   return (
@@ -192,22 +196,35 @@ const backgroundModes = [
     value: "off",
     label: "Off",
     description: "Use your original camera feed.",
+    preview: none,
   },
   {
     value: "blur",
     label: "Blur",
     description: "Soft blur for the room behind you.",
+    preview: blur,
   },
   {
     value: "image",
     label: "Image",
-    description: "Use a bundled background image.",
-    preview: virtualBackgroundImage,
+    description: "Use the default Vtalix background.",
+    preview: logo,
   },
   {
     value: "color",
     label: "Color",
     description: "Fill the background with a solid color.",
+    preview: color,
+  },
+];
+
+export default function MobileCall() {
+  const { appointmentId, roomId, socketId } = useParams();
+  const localRef = useRef(null);
+  const remoteRef = useRef(null);
+  const allowExitRef = useRef(false);
+  const chatOpenRef = useRef(false);
+  const agoraSessionRef = useRef(null);
   },
 ];
 

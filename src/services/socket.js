@@ -1,6 +1,7 @@
 import { io } from "socket.io-client";
 
-const SIGNAL_URL = import.meta.env.VITE_SIGNAL_URL || "https://dev-api.vtalix.com/api/v1/signalling";
+// const SIGNAL_URL = import.meta.env.VITE_SIGNAL_URL || "https://dev-api.vtalix.com/api/v1/signalling";
+const SIGNAL_URL = import.meta.env.VITE_SIGNAL_URL || "https://back-signal.onrender.com";
 const DEFAULT_SOCKET_PATH = "/socket.io";
 
 function getSocketConfig(rawUrl) {
