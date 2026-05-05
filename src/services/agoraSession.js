@@ -27,17 +27,21 @@ function loadVirtualBackgroundImage() {
 }
 
 async function getVirtualBackgroundOptions(mode) {
-  if (mode === "blur") {
+  if (mode === "blur-low") {
+    return { type: "blur", blurDegree: 1 };
+  }
+  
+  if (mode === "blur-medium") {
     return { type: "blur", blurDegree: 2 };
+  }
+  
+  if (mode === "blur-high") {
+    return { type: "blur", blurDegree: 3 };
   }
 
   if (mode === "image") {
     const image = await loadVirtualBackgroundImage();
     return { type: "img", source: image };
-  }
-
-  if (mode === "color") {
-    return { type: "color", color: "#ffffff" };
   }
 
   return { type: "none" };

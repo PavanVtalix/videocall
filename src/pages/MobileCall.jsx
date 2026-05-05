@@ -199,22 +199,22 @@ const backgroundModes = [
     preview: none,
   },
   {
-    value: "blur",
-    label: "Blur",
+    value: "blur-low",
+    label: "Blur (Low)",
     description: "Soft blur for the room behind you.",
     preview: blur,
   },
   {
-    value: "image",
-    label: "Image",
-    description: "Use the default Vtalix background.",
-    preview: logo,
+    value: "blur-medium",
+    label: "Blur (Medium)",
+    description: "Moderate blur for the room behind you.",
+    preview: blur,
   },
   {
-    value: "color",
-    label: "Color",
-    description: "Fill the background with a solid color.",
-    preview: color,
+    value: "blur-high",
+    label: "Blur (High)",
+    description: "Strong blur for the room behind you.",
+    preview: blur,
   },
 ];
 
