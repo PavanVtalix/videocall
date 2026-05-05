@@ -6,6 +6,7 @@ import micOff from "../assets/Microphone off.svg";
 import videoOn from "../assets/Video on.svg";
 import videoOff from "../assets/Video off.svg";
 import endCallIcon from "../assets/end call.svg";
+import bgImg from "../assets/bgRm.svg";
 
 export default function Controls({
   onChat,
@@ -57,9 +58,10 @@ export default function Controls({
         aria-label={backgroundEnabled ? "Change virtual background" : "Open virtual background options"}
         disabled={!backgroundSupported}
       >
-        <span className="control-btn__background-icon" aria-hidden="true">
-          BG
-        </span>
+        <img
+          src={bgImg}
+          alt="Background"
+        />
         <span>BG</span>
       </button>
 

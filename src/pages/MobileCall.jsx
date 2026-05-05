@@ -204,18 +204,18 @@ const backgroundModes = [
     description: "Soft blur for the room behind you.",
     preview: blur,
   },
-  {
-    value: "blur-medium",
-    label: "Blur (Medium)",
-    description: "Moderate blur for the room behind you.",
-    preview: blur,
-  },
-  {
-    value: "blur-high",
-    label: "Blur (High)",
-    description: "Strong blur for the room behind you.",
-    preview: blur,
-  },
+  // {
+  //   value: "blur-medium",
+  //   label: "Blur (Medium)",
+  //   description: "Moderate blur for the room behind you.",
+  //   preview: blur,
+  // },
+  // {
+  //   value: "blur-high",
+  //   label: "Blur (High)",
+  //   description: "Strong blur for the room behind you.",
+  //   preview: blur,
+  // },
 ];
 
 export default function MobileCall() {

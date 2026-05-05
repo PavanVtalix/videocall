@@ -8,7 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 16px;
   padding: 8px 0 0;
   transform: none;
   border: none;
@@ -21,17 +21,17 @@
 .control-btn {
   appearance: none;
   position: relative;
-  width: 56px;
-  height: 56px;
-  min-width: 56px;
-  min-height: 56px;
+  width: 46px;
+  height: 46px;
+  min-width: 46px;
+  min-height: 46px;
   border: none;
   border-radius: 999px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 0;
+  gap: 4px;
   background: #f2f4f7;
   color: #111827;
   box-shadow: 0 10px 24px rgba(16, 24, 40, 0.12);
@@ -47,8 +47,8 @@
 }
 
 .control-btn img {
-  width: 28px;
-  height: 28px;
+  width: 46px;
+  height: 46px;
 }
 
 .control-btn span:not(.control-btn__chat-icon):not(.control-btn__badge) {
