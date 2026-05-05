@@ -55,7 +55,7 @@ export default function Controls({
         type="button"
         onClick={onBackground}
         aria-pressed={backgroundEnabled}
-        aria-label={backgroundEnabled ? "Change virtual background" : "Open virtual background options"}
+        aria-label={backgroundEnabled ? "Turn virtual background off" : "Turn virtual background on"}
         disabled={!backgroundSupported}
       >
         <img

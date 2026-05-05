@@ -10,11 +10,8 @@ import micOn from "../assets/Microphone on.svg";
 import micOff from "../assets/Microphone off.svg";
 import videoOnIcon from "../assets/Video on.svg";
 import videoOffIcon from "../assets/Video off.svg";
-import virtualBackgroundImage from "../assets/virtual-background.svg";
 import "../styles/mobile-call.css";
-import none from "../assets/none.png";
 import blur from "../assets/blur.jpg";
-import color from "../assets/white-color.png";
 import logo from "../assets/vtalix-logo.png";
 
 function getAppointmentApiBaseUrl() {
@@ -191,33 +188,6 @@ function normalizeMessages(entries = [], participantName) {
     }));
 }
 
-const backgroundModes = [
-  {
-    value: "off",
-    label: "Off",
-    description: "Use your original camera feed.",
-    preview: none,
-  },
-  {
-    value: "blur-low",
-    label: "Blur (Low)",
-    description: "Soft blur for the room behind you.",
-    preview: blur,
-  },
-  // {
-  //   value: "blur-medium",
-  //   label: "Blur (Medium)",
-  //   description: "Moderate blur for the room behind you.",
-  //   preview: blur,
-  // },
-  // {
-  //   value: "blur-high",
-  //   label: "Blur (High)",
-  //   description: "Strong blur for the room behind you.",
-  //   preview: blur,
-  // },
-];
-
 export default function MobileCall() {
   const { appointmentId, roomId, socketId } = useParams();
   const localRef = useRef(null);
@@ -242,9 +212,7 @@ export default function MobileCall() {
   const [feedbackOpen, setFeedbackOpen] = useState(false);
   const [submittingFeedback, setSubmittingFeedback] = useState(false);
   const [backgroundMode, setBackgroundMode] = useState("off");
-  const [backgroundMenuOpen, setBackgroundMenuOpen] = useState(false);
   const [backgroundSupported, setBackgroundSupported] = useState(true);
-  const [backgroundError, setBackgroundError] = useState("");
   const navigate = useNavigate();
   const participantId = useMemo(() => getParticipantId(roomId), [roomId]);
   const participantName = useMemo(() => getParticipantName(roomId), [roomId]);
@@ -390,10 +358,6 @@ export default function MobileCall() {
 
       const supported = agoraSessionRef.current.isVirtualBackgroundSupported();
       setBackgroundSupported(supported);
-
-      if (!supported) {
-        setBackgroundError("Virtual background is not supported in this browser.");
-      }
     };
 
     startAgoraCall().catch((error) => {
@@ -437,24 +401,21 @@ export default function MobileCall() {
     }
   };
 
-  const selectBackgroundMode = async (mode) => {
+  const toggleBackgroundMode = async () => {
     if (!backgroundSupported) {
-      setBackgroundError("Virtual background is not supported in this browser.");
-      setBackgroundMenuOpen(false);
+      setBackgroundMode("off");
       return;
     }
 
+    const nextMode = backgroundMode === "off" ? "blur-low" : "off";
     const previousMode = backgroundMode;
-    setBackgroundError("");
-    setBackgroundMode(mode);
+    setBackgroundMode(nextMode);
 
     try {
-      await agoraSessionRef.current?.setVirtualBackgroundMode(mode);
-      setBackgroundMenuOpen(false);
+      await agoraSessionRef.current?.setVirtualBackgroundMode(nextMode);
     } catch (error) {
       console.warn("Unable to update virtual background", error);
       setBackgroundMode(previousMode);
-      setBackgroundError(error?.message || "Unable to update virtual background.");
     }
   };
 
@@ -728,67 +689,18 @@ export default function MobileCall() {
           )}
           {backgroundMode !== "off" && (
             <span className="local-media-badge local-media-badge--background" aria-label={`Virtual background is ${backgroundMode}`}>
-              BG
+              Blur
             </span>
           )}
         </div>
       </div>
-
-      {backgroundMenuOpen && (
-        <div className="background-menu" role="menu" aria-label="Virtual background options">
-          <div className="background-menu__header">
-            <div>
-              <p>Virtual background</p>
-              <span>Pick a blur, image, or solid color.</span>
-            </div>
-            <button type="button" onClick={() => setBackgroundMenuOpen(false)} aria-label="Close virtual background options">
-              Close
-            </button>
-          </div>
-
-          <div className="background-menu__grid">
-            {backgroundModes.map((option) => {
-              const isSelected = backgroundMode === option.value;
-
-              return (
-                <button
-                  key={option.value}
-                  type="button"
-                  className={`background-menu__option ${isSelected ? "is-selected" : ""}`}
-                  onClick={() => selectBackgroundMode(option.value)}
-                  aria-pressed={isSelected}
-                >
-                  <span
-                    className={`background-menu__preview ${option.value === "blur" ? "is-blur" : ""} ${option.value === "color" ? "is-color" : ""}`}
-                    style={option.preview ? { backgroundImage: `url(${option.preview})` } : undefined}
-                    aria-hidden="true"
-                  />
-                  <span className="background-menu__meta">
-                    <strong>{option.label}</strong>
-                    <span>{option.description}</span>
-                  </span>
-                </button>
-              );
-            })}
-          </div>
-
-          {backgroundError ? <p className="background-menu__error">{backgroundError}</p> : null}
-        </div>
-      )}
 
       <Controls
         onChat={() => {
           setChatOpen(true);
         }}
         onEnd={endCall}
-        onBackground={() => {
-          if (!backgroundSupported) {
-            setBackgroundError("Virtual background is not supported in this browser.");
-            return;
-          }
-
-          setBackgroundMenuOpen((open) => !open);
-        }}
+        onBackground={toggleBackgroundMode}
         onToggleMute={toggleMute}
         onToggleVideo={toggleVideo}
         backgroundEnabled={backgroundMode !== "off"}
