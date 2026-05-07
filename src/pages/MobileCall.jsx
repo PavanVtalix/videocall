@@ -607,7 +607,7 @@ export default function MobileCall() {
               window.location.replace("https://vtalix.com/");
             }}
           >
-            Back to join page
+            Back to default page
           </button>
         </div>
       </div>
